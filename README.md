@@ -45,3 +45,15 @@ Once CSFT has been successfully built, there should be a executable in the `buil
 
 To run CSFT, go to `./bin/linux` for Linux system or `./bin/macos` for MacOS, and invoke `./CSFT <parameters_config_file>`.  
 Example usage: `./CSFT ../../params.txt`  
+
+Description of the CSFT parameters config file is shown below.  
+- **img1_fullpath**: path to the 1st input image
+- **img2_fullpath**: path to the 2nd input image
+- **out_path**: path to the output folder
+- **n_keypoints**: number of keypoints to detect per image
+- **upright_csft**: flag for using upright-CSFT which disables rotation invariance (1: upright-CSFT, 0: standard-CSFT)
+- **flag_export_keypts**: flag for exporting feature keypoints to text files
+- **flag_export_desc**: flag for exporting feature descriptors to text files
+- **flag_export_match**: flag for exporting feature matches to text files
+- **flag_draw_keypts_img**: flag for visualizing feature keypoints on the input images
+- **flag_draw_match_img**: flag for visualizing feature matches on the input images
