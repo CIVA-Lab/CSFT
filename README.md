@@ -61,7 +61,26 @@ Example usage: `./CSFT ../../params.txt`
 ## Output
 The output files will be saved to the directory specified by `out_path` in the parameters config file.
 ### Visualization
-- An image showing the detected keypoints will be saved if `flag_draw_keypts_img` is set to `1`.  
+- Images showing the detected keypoints will be saved if `flag_draw_keypts_img` is set to `1`.  
 - An image showing the matches will be saved if `flag_draw_match_img` is set to `1`.  
 
-
+### Text Files
+- If `flag_export_keypts` is set to `1`, an ASCII text file containing the keypoints locations (`x y`) will be created for each input image where each row corresponds to a keypoint.   
+Example:
+```
+618.116028 204.111755
+437.704346 299.728333
+597.402649 202.520157
+188.808380 446.749207
+437.238708 306.217590
+```
+- If `flag_export_desc` is set to `1`, an ASCII text file containing the descriptors will be created for each input image where each row corresponds to the descriptor for a keypoint.   
+- If `flag_export_match` is set to `1`, an ASCII text file containing the matches (`x1 y1 x2 y2`) will be created for a pair of images where each row corresponds to a match. `x1 y1` and `x2 y2` denote the coordinate of the matched keypoint in the first image and second image, respectively.    
+Example:
+```
+421.005707 304.459961 406.880188 321.907928
+409.846680 297.340576 397.476959 325.259186
+392.506470 306.396332 393.034668 338.806610
+376.126678 328.696777 392.975586 357.134857
+437.796295 402.756653 462.513184 370.383728
+```
