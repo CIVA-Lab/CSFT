@@ -16,7 +16,7 @@ Columbia, MO 65211*
 CSFT is novel feature detection and description approach for robustly matching features across different views suitable for applications such as camera pose estimation and Structure-from-Motion in large scale aerial images. CSFT features are robust across a range of scale and rotation, image blur, varying illumination, and JPEG compression artifacts. The CSFT descriptor is compressed using geometric transformations in the frequency domain that significantly reduce its size. The CSFT feature uses a novel vectorized Normalized Cross Correlation (VNCC) method for matching descriptors. CSFT is a domain independent method that can be easily implemented. CSFT requires no training step compared to the deep learning approaches.  
 
 <p align="center">
-  <img width="800" height="394" src="assets/csft_overview.png">
+  <img width="800" height="164" src="assets/csft_flowchart.png">
 </p>
 
 
@@ -41,12 +41,12 @@ $ make
 
 ## Usage
 ### Running CSFT
-Once CSFT has been successfully built, there should be a executable in the `build` directory: `CSFT`.  
+Once CSFT has been successfully built, there should be a executable in the `bin` directory: `CSFT`.  
 
-To run CSFT, go to `./bin/linux` for Linux system or `./bin/macos` for MacOS, and invoke `./CSFT <parameters_config_file>`.  
+To run CSFT, go to `./bin/linux` for Linux or `./bin/macos` for MacOS, and invoke `./CSFT <parameters_config_file>`.  
 Example usage: `./CSFT ../../params.txt`  
 
-Description of the CSFT parameters config file is shown below.  
+### Description of the CSFT Parameters in Config File
 - **img1_fullpath**: path to the 1st input image
 - **img2_fullpath**: path to the 2nd input image
 - **out_path**: path to the output folder
@@ -56,4 +56,12 @@ Description of the CSFT parameters config file is shown below.
 - **flag_export_desc**: flag for exporting feature descriptors to text files
 - **flag_export_match**: flag for exporting feature matches to text files
 - **flag_draw_keypts_img**: flag for visualizing feature keypoints on the input images
-- **flag_draw_match_img**: flag for visualizing feature matches on the input images
+- **flag_draw_match_img**: flag for visualizing feature matches on the input images  
+
+## Output
+The output files will be saved to the directory specified by `out_path` in the parameters config file.
+### Visualization
+- An image showing the detected keypoints will be saved if `flag_draw_keypts_img` is set to `1`.  
+- An image showing the matches will be saved if `flag_draw_match_img` is set to `1`.  
+
+
