@@ -23,13 +23,15 @@ CSFT is novel feature detection and description approach for robustly matching f
 ## Building CSFT
 
 ### Build Library Dependencies   
-Before CSFT can be built, several dependencies need to be available on the system:
+Before CSFT can be built, several dependencies need to be available on the system.     
 
 - `OpenCV C++ >= 3.4.0`
 - `CMake`
 - `OpenMP`
+- `CUDA (optional)`
 
-
+`CUDA` is optional but recommended for a better run-time performance. CMake flag `-DNO_CUDA_BUILD` can be used to adjust the build to switch between GPU and CPU implementation as needed. CSFT is built without CUDA when set to `-DNO_CUDA_BUILD=1`. Otherwise, CMake defaults to building with CUDA support when not explicitly specified, i.e., `-DNO_CUDA_BUILD=0`.
+ 
 ### Configure and Build   
 ```
 $ cd CSFT
