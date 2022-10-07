@@ -16,7 +16,7 @@ Columbia, MO 65211*
 CSFT is novel feature detection and description approach for robustly matching features across different views suitable for applications such as camera pose estimation and Structure-from-Motion in large scale aerial images. CSFT features are robust across a range of scale and rotation, image blur, varying illumination, and JPEG compression artifacts. The CSFT descriptor is compressed using geometric transformations in the frequency domain that significantly reduce its size. The CSFT feature uses a novel vectorized Normalized Cross Correlation (VNCC) method for matching descriptors. CSFT is a domain independent method that can be easily implemented. CSFT requires no training step compared to the deep learning approaches.  
 
 <p align="center">
-  <img width="800" height="164" src="assets/csft_flowchart.png">
+  <img width="800" height="155" src="assets/csft_flowchart.jpg">
 </p>
 
 
@@ -88,33 +88,3 @@ Example:
 437.796295 402.756653 462.513184 370.383728
 ```
 
-
-## Run-time Analysis  
-Run-time in seconds for CSFT to perform keypoint detection, description, and matching (I/O included) for two images using the implementation with GPU support, multi-threaded CPU implementation with OpenMP, and single-threaded CPU implementation, respectively. 
-
-### Platform 
-Server with an 8-core Intel(R) Xeon(R) W-2123 CPU @ 3.60GHz and an NVIDIA Quadro RTX 8000 GPU.    
-
-### Test data #1
-- Reference image: `rit_rgb0000.jpg`
-- Matching image: `rit_rgb0009.jpg`
-- Image size: `1200 x 800`
-- Number of keypoints per image: `3000`
-- Number of matches: `1592`
-- Run-time: 
-  - GPU: `4.97s`
-  - Multi-threaded CPU (OMP_MAX_THREADS=16): `40.01s`
-  - Single-threaded CPU: `190.02s` 
-
-### Test data #2
-- Reference image: `boat_img1.png`
-- Matching image: `boat_img3.png`
-- Image size: `850 x 680`
-- Number of keypoints per image: `200`
-- Number of matches: `52`
-- Run-time: 
-  - GPU: `2.16s`
-  - Multi-threaded CPU (OMP_MAX_THREADS=16): `0.70s`
-  - Single-threaded CPU: `1.60s`
-
-The implementation with GPU support achieves over `35x` speed-up compared to the single-threaded CPU implementation and over `8x` speed-up compared to the multi-threaded CPU implementation for test images with `3000` keypoints. However, the GPU implementation is slower than the CPU implementations for images with small amount of keypoints, since transferring memory between the host (CPU) to device (GPU) is time-consuming.  
